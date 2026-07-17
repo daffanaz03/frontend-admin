@@ -1,0 +1,17 @@
+services:
+  pengajuan_karyawan_order:
+    image: mysql:8.0
+    container_name: mysql_pengajuan_karyawan_order
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123 #bisa diganti
+      MYSQL_DATABASE: pengajuan_karyawan_order #bisa diganti
+      MYSQL_USER: admin123 #bisa diganti
+      MYSQL_PASSWORD: admin123 #bisa diganti
+    volumes:
+      - pengajuan_karyawan_order_data:/var/lib/mysql #bisa diganti
+  
+volumes:
+  pengajuan_karyawan_order_data:

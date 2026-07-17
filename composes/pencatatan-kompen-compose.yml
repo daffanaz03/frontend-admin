@@ -1,0 +1,32 @@
+services: 
+  mysql_akasia:
+    image: mysql:8.0
+    container_name: mysql_db_akasia
+    restart: always
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: akasia123
+      MYSQL_DATABASE: akasia_asli_db
+      MYSQL_USER: akasia_admin
+      MYSQL_PASSWORD: akasia123
+      volumes:
+      - akasia_data_asli:/var/lib/mysql
+
+  mysql_web: 
+    image: mysql:8.0
+    container_name: mysql_db_web
+    restart: always
+    ports:
+      - "3311:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: web123
+      MYSQL_DATABASE: pencatatan_kompen_db
+      MYSQL_USER: web_admin
+      MYSQL_PASSWORD: web123
+      volumes:
+      - web_data:/var/lib/mysql
+
+volumes:
+  akasia_data_asli:
+  web_data:
